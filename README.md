@@ -1,4 +1,4 @@
-# Shop Application
+# StationaryPro
 
 This repository contains a full-stack e-commerce application with a React frontend and a Node.js/Express backend.
 
