@@ -2,6 +2,7 @@ import React from "react";
 import { useCartStore } from "../store/useCartStore";
 import { Link } from "react-router-dom";
 import type { CartItem } from "../store/useCartStore";
+import { Trash2 } from "lucide-react";
 
 const CartPage: React.FC = () => {
   const { items, removeFromCart, updateQuantity } = useCartStore();
@@ -19,7 +20,7 @@ const CartPage: React.FC = () => {
         </div>
       ) : (
         <div>
-          <ul className="divide-y divide-gray-200">
+          <ul className="divide-y divide-gray-200 max-h-[60vh] overflow-y-auto px-5">
             {items.map((item: CartItem) => (
               <li key={item.id} className="flex py-6">
                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -61,9 +62,10 @@ const CartPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => removeFromCart(item.id)}
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                        className="font-medium text-red-600 hover:text-red-400 cursor-pointer"
+                        title="Remove from cart"
                       >
-                        Remove
+                        <Trash2 />
                       </button>
                     </div>
                   </div>
@@ -72,8 +74,8 @@ const CartPage: React.FC = () => {
             ))}
           </ul>
           <div className="mt-6">
-            <div className="flex justify-between text-base font-medium text-gray-900">
-              <p>Subtotal</p>
+            <div className="flex justify-end gap-5 text-base font-medium text-gray-900">
+              <p className="font-semibold">Subtotal</p>
               <p>${total.toFixed(2)}</p>
             </div>
             <div className="mt-6">

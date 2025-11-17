@@ -12,26 +12,44 @@ const Navbar: React.FC = () => {
   const items = useCartStore((state: CartState) => state.items);
 
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="bg-gray-800 p-4 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-white text-lg font-bold">
           StationeryPro
         </Link>
         <div className="flex items-center">
-          <Link to="/cart" className="text-white mr-4 flex items-center" title="View Cart">
+          <Link
+            to="/cart"
+            className="text-white mr-4 flex items-center"
+            title="View Cart"
+          >
             <FiShoppingCart className="text-xl" />
-            {items.length > 0 && <span className="ml-1 text-sm">({items.length})</span>}
+            {items.length > 0 && (
+              <span className="ml-1 text-sm">({items.length})</span>
+            )}
           </Link>
           {user ? (
-            <button onClick={logout} className="text-white flex items-center" title="Logout">
+            <button
+              onClick={logout}
+              className="text-white flex items-center"
+              title="Logout"
+            >
               <FiLogOut className="text-xl" />
             </button>
           ) : (
-            <Link to="/login" className="text-white flex items-center" title="Login">
+            <Link
+              to="/login"
+              className="text-white flex items-center"
+              title="Login"
+            >
               <FiLogIn className="text-xl" />
             </Link>
           )}
-          <Link to="/admin" className="text-white ml-4 flex items-center" title="Admin Dashboard">
+          <Link
+            to="/admin"
+            className="text-white ml-4 flex items-center"
+            title="Admin Dashboard"
+          >
             <FiSettings className="text-xl" />
           </Link>
         </div>
