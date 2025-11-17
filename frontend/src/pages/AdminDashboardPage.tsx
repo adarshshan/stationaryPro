@@ -197,7 +197,7 @@ const AdminDashboardPage: React.FC = () => {
           <div className="px-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600">
             <h2 className="text-xl font-semibold text-white">All Orders</h2>
           </div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto max-h-[55vh] overflow-y-auto">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
@@ -221,7 +221,7 @@ const AdminDashboardPage: React.FC = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200  max-h-96 overflow-y-scroll">
+              <tbody className="bg-white divide-y divide-gray-200">
                 {orders.length === 0 ? (
                   <tr>
                     <td

@@ -83,7 +83,7 @@ const CheckoutPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
@@ -244,7 +244,7 @@ const CheckoutPage: React.FC = () => {
                     Review Your Order
                   </h2>
 
-                  <div className="space-y-6">
+                  <div className="space-y-6 max-h-96 overflow-y-auto">
                     {items.map((item) => (
                       <div
                         key={item.id}
@@ -268,34 +268,31 @@ const CheckoutPage: React.FC = () => {
                         </p>
                       </div>
                     ))}
-
-                    <div className="border-t pt-6">
-                      <div className="flex justify-between text-xl font-bold text-gray-900">
-                        <span>Total Amount</span>
-                        <span className="text-indigo-600">
-                          ₹{total.toFixed(2)}
-                        </span>
-                      </div>
+                  </div>
+                  <div className="border-t pt-6">
+                    <div className="flex justify-between text-xl font-bold text-gray-900">
+                      <span>Total Amount</span>
+                      <span className="text-indigo-600">
+                        ₹{total.toFixed(2)}
+                      </span>
                     </div>
+                  </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <button
-                        onClick={() => setStep(1)}
-                        className="flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
-                      >
-                        <ArrowLeft className="w-5 h-5" />
-                        Back to Address
-                      </button>
-                      <button
-                        onClick={handlePlaceOrder}
-                        disabled={items.length === 0}
-                        className="flex-1 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        {items.length === 0
-                          ? "Cart is Empty"
-                          : "Place Order Now"}
-                      </button>
-                    </div>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <button
+                      onClick={() => setStep(1)}
+                      className="flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+                    >
+                      <ArrowLeft className="w-5 h-5" />
+                      Back to Address
+                    </button>
+                    <button
+                      onClick={handlePlaceOrder}
+                      disabled={items.length === 0}
+                      className="flex-1 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {items.length === 0 ? "Cart is Empty" : "Place Order Now"}
+                    </button>
                   </div>
                 </>
               )}
