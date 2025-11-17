@@ -72,4 +72,4 @@ Once both the frontend and backend are running:
 -   **Admin Dashboard:** Access the admin dashboard (requires login).
 
 ---
-**Note:** This application uses `sweetalert2` for enhanced popup modals and `axios` for API requests with JWT authentication.
+**Note:** The project uses TypeScript end-to-end (frontend and backend), integrates sweetalert2 for interactive alert modals, and leverages axios for JWT-authenticated API communication.
